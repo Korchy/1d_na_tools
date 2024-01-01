@@ -1,0 +1,3 @@
+[submodule "we_crease_from_seam"]
+	path = we_crease_from_seam
+	url = git@github.com:Korchy/1d_we_crease_from_seam.git
