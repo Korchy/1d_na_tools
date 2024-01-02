@@ -13,3 +13,6 @@
 [submodule "drawing_split"]
 	path = drawing_split
 	url = git@github.com:Korchy/1d_drawing_split.git
+[submodule "edges_length"]
+	path = edges_length
+	url = git@github.com:Korchy/1d_edges_length.git

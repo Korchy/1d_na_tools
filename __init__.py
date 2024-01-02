@@ -9,6 +9,7 @@ from .material_select import material_1d_select
 from .subd_tool import subd_tool
 from . import delaunay_1d_shot
 from .drawing_split import drawing_split
+from .edges_length import edges_length
 from . import na_1d_tools_ui
 
 bl_info = {
@@ -30,6 +31,7 @@ def register():
     subd_tool.register(ui=False)
     delaunay_1d_shot.register(ui=False)
     drawing_split.register(ui=False)
+    edges_length.register(ui=False)
 
     na_1d_tools_ui.register()
 
@@ -37,6 +39,7 @@ def register():
 def unregister():
     na_1d_tools_ui.unregister()
 
+    edges_length.unregister(ui=False)
     drawing_split.unregister(ui=False)
     delaunay_1d_shot.unregister(ui=False)
     subd_tool.unregister(ui=False)

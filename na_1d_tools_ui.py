@@ -10,6 +10,7 @@ from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
 from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
 from .drawing_split.drawing_split import DrawingSplit
+from .edges_length.edges_length import EdgesLength
 from .material_select.material_1d_select import MaterialSelect
 from .subd_tool.subd_tool import SubdTool
 from .we_crease_from_seam.we_crease_from_seam import WECFS
@@ -38,6 +39,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	drawing_split = BoolProperty(
+		default=False
+	)
+	edges_length = BoolProperty(
 		default=False
 	)
 
@@ -118,6 +122,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.drawing_split:
 				DrawingSplit.ui(layout=layout)
+			# Edges Length
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='edges_length',
+				label='Edges Length'
+			)
+			if context.scene.na_1d_tools_ui.edges_length:
+				EdgesLength.ui(
+					layout=layout,
+					context=context
+				)
 
 	@staticmethod
 	def ui_section(layout, context, prop, label):
