@@ -19,3 +19,6 @@
 [submodule "height_painter"]
 	path = height_painter
 	url = git@github.com:Korchy/1d_height_painter.git
+[submodule "stairs_sketcher"]
+	path = stairs_sketcher
+	url = git@github.com:Korchy/1d_stairs_sketcher.git

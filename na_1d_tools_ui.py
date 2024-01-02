@@ -13,6 +13,7 @@ from .drawing_split.drawing_split import DrawingSplit
 from .edges_length.edges_length import EdgesLength
 from .height_painter.height_painter import HeightPainter
 from .material_select.material_1d_select import MaterialSelect
+from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
 from .we_crease_from_seam.we_crease_from_seam import WECFS
 
@@ -46,6 +47,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	height_painter = BoolProperty(
+		default=False
+	)
+	stairs_sketcher = BoolProperty(
 		default=False
 	)
 
@@ -150,6 +154,15 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=layout,
 					context=context
 				)
+			# Stairs Sketcher
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='stairs_sketcher',
+				label='Stairs Sketcher'
+			)
+			if context.scene.na_1d_tools_ui.stairs_sketcher:
+				StairsSketcher.ui(layout=layout)
 
 	@staticmethod
 	def ui_section(layout, context, prop, label):

@@ -11,6 +11,7 @@ from . import delaunay_1d_shot
 from .drawing_split import drawing_split
 from .edges_length import edges_length
 from .height_painter import height_painter
+from .stairs_sketcher import stairs_sketcher
 from . import na_1d_tools_ui
 
 bl_info = {
@@ -34,6 +35,7 @@ def register():
     drawing_split.register(ui=False)
     edges_length.register(ui=False)
     height_painter.register(ui=False)
+    stairs_sketcher.register(ui=False)
 
     na_1d_tools_ui.register()
 
@@ -41,6 +43,7 @@ def register():
 def unregister():
     na_1d_tools_ui.unregister()
 
+    stairs_sketcher.unregister(ui=False)
     height_painter.unregister(ui=False)
     edges_length.unregister(ui=False)
     drawing_split.unregister(ui=False)
