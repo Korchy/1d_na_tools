@@ -16,6 +16,7 @@ from .material_select.material_1d_select import MaterialSelect
 from .retuber.retuber import Retuber
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
+from .vitragen.vitragen import Vitragen
 from .we_crease_from_seam.we_crease_from_seam import WECFS
 
 
@@ -54,6 +55,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	retuber = BoolProperty(
+		default=False
+	)
+	vitragen = BoolProperty(
 		default=False
 	)
 
@@ -176,6 +180,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.retuber:
 				Retuber.ui(layout=layout)
+			# Vitragen
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='vitragen',
+				label='Vitragen'
+			)
+			if context.scene.na_1d_tools_ui.vitragen:
+				Vitragen.ui(
+					layout=layout,
+					context=context
+				)
 
 	@staticmethod
 	def ui_section(layout, context, prop, label):

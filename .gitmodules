@@ -25,3 +25,6 @@
 [submodule "retuber"]
 	path = retuber
 	url = git@github.com:Korchy/1d_retuber.git
+[submodule "vitragen"]
+	path = vitragen
+	url = git@github.com:Korchy/1d_vitragen.git
