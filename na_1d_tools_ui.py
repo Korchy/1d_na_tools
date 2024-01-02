@@ -8,9 +8,10 @@
 from bpy.props import BoolProperty, PointerProperty
 from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
-from .we_crease_from_seam.we_crease_from_seam import WECFS
+from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
 from .material_select.material_1d_select import MaterialSelect
 from .subd_tool.subd_tool import SubdTool
+from .we_crease_from_seam.we_crease_from_seam import WECFS
 
 
 # UI
@@ -30,6 +31,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	subd_tool = BoolProperty(
+		default=False
+	)
+	delaunay_1d_shot = BoolProperty(
 		default=False
 	)
 
@@ -89,9 +93,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			label='EDIT TOOLS'
 		)
 		if context.scene.na_1d_tools_ui.edit_section:
-			# we crease from seam
-			# WECFS.ui(layout=layout)
-			pass
+			# Delaunay 1D Shot
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='delaunay_1d_shot',
+				label='Delaunay 1D Shot'
+			)
+			if context.scene.na_1d_tools_ui.delaunay_1d_shot:
+				delaunay_voronoi_1d_ui(
+					layout=layout,
+					context=context
+				)
 
 	@staticmethod
 	def ui_section(layout, context, prop, label):

@@ -7,3 +7,6 @@
 [submodule "subd_tool"]
 	path = subd_tool
 	url = git@github.com:Korchy/1d_subd_tool.git
+[submodule "delaunay_1d_shot"]
+	path = delaunay_1d_shot
+	url = git@github.com:Korchy/delaunay_1d_shot.git
