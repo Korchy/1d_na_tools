@@ -16,3 +16,6 @@
 [submodule "edges_length"]
 	path = edges_length
 	url = git@github.com:Korchy/1d_edges_length.git
+[submodule "height_painter"]
+	path = height_painter
+	url = git@github.com:Korchy/1d_height_painter.git
