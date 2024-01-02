@@ -31,3 +31,6 @@
 [submodule "vertical_vertices"]
 	path = vertical_vertices
 	url = git@github.com:Korchy/1d_vertical_vertices.git
+[submodule "vertical"]
+	path = vertical
+	url = git@github.com:Korchy/1d_vertical.git

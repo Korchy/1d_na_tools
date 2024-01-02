@@ -13,6 +13,7 @@ from .edges_length import edges_length
 from .height_painter import height_painter
 from .retuber import retuber
 from .stairs_sketcher import stairs_sketcher
+from .vertical import vertical
 from .vertical_vertices import vertical_vertices
 from .vitragen import vitragen
 from . import na_1d_tools_ui
@@ -42,6 +43,7 @@ def register():
     retuber.register(ui=False)
     vitragen.register(ui=False)
     vertical_vertices.register(ui=False)
+    vertical.register(ui=False)
 
     na_1d_tools_ui.register()
 
@@ -49,6 +51,7 @@ def register():
 def unregister():
     na_1d_tools_ui.unregister()
 
+    vertical.unregister(ui=False)
     vertical_vertices.unregister(ui=False)
     vitragen.unregister(ui=False)
     retuber.unregister(ui=False)

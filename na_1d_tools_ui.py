@@ -16,6 +16,7 @@ from .material_select.material_1d_select import MaterialSelect
 from .retuber.retuber import Retuber
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
+from .vertical.vertical import Vertical
 from .vertical_vertices.vertical_vertices import VerticalVertices
 from .vitragen.vitragen import Vitragen
 from .we_crease_from_seam.we_crease_from_seam import WECFS
@@ -62,6 +63,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	vertical_vertices = BoolProperty(
+		default=False
+	)
+	vertical_uv = BoolProperty(
 		default=False
 	)
 
@@ -126,7 +130,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 				layout=layout,
 				context=context,
 				prop='delaunay_1d_shot',
-				label='Delaunay 1D Shot'
+				label='Delaunay 1D Shot 1.0.1'
 			)
 			if context.scene.na_1d_tools_ui.delaunay_1d_shot:
 				delaunay_voronoi_1d_ui(
@@ -205,6 +209,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.vertical_vertices:
 				VerticalVertices.ui(
+					layout=layout,
+					context=context
+				)
+			# Vertical
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='vertical_uv',
+				label='Vertical UV'
+			)
+			if context.scene.na_1d_tools_ui.vertical_uv:
+				Vertical.ui(
 					layout=layout,
 					context=context
 				)
