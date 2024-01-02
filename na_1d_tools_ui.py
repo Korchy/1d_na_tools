@@ -16,6 +16,7 @@ from .material_select.material_1d_select import MaterialSelect
 from .retuber.retuber import Retuber
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
+from .vertical_vertices.vertical_vertices import VerticalVertices
 from .vitragen.vitragen import Vitragen
 from .we_crease_from_seam.we_crease_from_seam import WECFS
 
@@ -58,6 +59,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	vitragen = BoolProperty(
+		default=False
+	)
+	vertical_vertices = BoolProperty(
 		default=False
 	)
 
@@ -189,6 +193,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.vitragen:
 				Vitragen.ui(
+					layout=layout,
+					context=context
+				)
+			# Vertical Vertices
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='vertical_vertices',
+				label='Vertical Vertices'
+			)
+			if context.scene.na_1d_tools_ui.vertical_vertices:
+				VerticalVertices.ui(
 					layout=layout,
 					context=context
 				)

@@ -28,3 +28,6 @@
 [submodule "vitragen"]
 	path = vitragen
 	url = git@github.com:Korchy/1d_vitragen.git
+[submodule "vertical_vertices"]
+	path = vertical_vertices
+	url = git@github.com:Korchy/1d_vertical_vertices.git
