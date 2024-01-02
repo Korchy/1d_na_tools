@@ -13,6 +13,7 @@ from .drawing_split.drawing_split import DrawingSplit
 from .edges_length.edges_length import EdgesLength
 from .height_painter.height_painter import HeightPainter
 from .material_select.material_1d_select import MaterialSelect
+from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
@@ -66,6 +67,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	vertical_uv = BoolProperty(
+		default=False
+	)
+	quad_bridge = BoolProperty(
 		default=False
 	)
 
@@ -224,6 +228,19 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=layout,
 					context=context
 				)
+
+		# Quad Bridge
+		self.ui_section(
+			layout=layout,
+			context=context,
+			prop='quad_bridge',
+			label='Quad Bridge 0.8.0'
+		)
+		if context.scene.na_1d_tools_ui.quad_bridge:
+			quad_bridge_ui(
+				layout=layout,
+				context=context
+			)
 
 	@staticmethod
 	def ui_section(layout, context, prop, label):

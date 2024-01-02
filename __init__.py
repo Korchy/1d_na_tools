@@ -8,6 +8,7 @@ from .we_crease_from_seam import we_crease_from_seam
 from .material_select import material_1d_select
 from .subd_tool import subd_tool
 from . import delaunay_1d_shot
+from . import quad_bridge
 from .drawing_split import drawing_split
 from .edges_length import edges_length
 from .height_painter import height_painter
@@ -44,6 +45,7 @@ def register():
     vitragen.register(ui=False)
     vertical_vertices.register(ui=False)
     vertical.register(ui=False)
+    quad_bridge.register(ui=False)
 
     na_1d_tools_ui.register()
 
@@ -51,6 +53,7 @@ def register():
 def unregister():
     na_1d_tools_ui.unregister()
 
+    quad_bridge.unregister(ui=False)
     vertical.unregister(ui=False)
     vertical_vertices.unregister(ui=False)
     vitragen.unregister(ui=False)

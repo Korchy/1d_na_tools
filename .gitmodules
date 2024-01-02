@@ -34,3 +34,6 @@
 [submodule "vertical"]
 	path = vertical
 	url = git@github.com:Korchy/1d_vertical.git
+[submodule "quad_bridge"]
+	path = quad_bridge
+	url = git@github.com:Korchy/1d_quad_bridge.git
