@@ -5,6 +5,7 @@
 #   https://github.com/Korchy/1d_na_tools
 
 from .we_crease_from_seam import we_crease_from_seam
+from . import na_1d_tools_ui
 
 bl_info = {
     'name': 'NA 1D Tools',
@@ -20,11 +21,13 @@ bl_info = {
 
 
 def register():
-    we_crease_from_seam.register()
+    we_crease_from_seam.register(ui=False)
+    na_1d_tools_ui.register()
 
 
 def unregister():
-    we_crease_from_seam.unregister()
+    na_1d_tools_ui.unregister()
+    we_crease_from_seam.unregister(ui=False)
 
 
 if __name__ == "__main__":
