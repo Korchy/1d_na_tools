@@ -9,6 +9,7 @@ from bpy.props import BoolProperty, PointerProperty
 from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
 from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
+from .drawing_split.drawing_split import DrawingSplit
 from .material_select.material_1d_select import MaterialSelect
 from .subd_tool.subd_tool import SubdTool
 from .we_crease_from_seam.we_crease_from_seam import WECFS
@@ -34,6 +35,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	delaunay_1d_shot = BoolProperty(
+		default=False
+	)
+	drawing_split = BoolProperty(
 		default=False
 	)
 
@@ -105,6 +109,15 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=layout,
 					context=context
 				)
+			# Drawing Split
+			self.ui_section(
+				layout=layout,
+				context=context,
+				prop='drawing_split',
+				label='Drawing Split'
+			)
+			if context.scene.na_1d_tools_ui.drawing_split:
+				DrawingSplit.ui(layout=layout)
 
 	@staticmethod
 	def ui_section(layout, context, prop, label):

@@ -10,3 +10,6 @@
 [submodule "delaunay_1d_shot"]
 	path = delaunay_1d_shot
 	url = git@github.com:Korchy/delaunay_1d_shot.git
+[submodule "drawing_split"]
+	path = drawing_split
+	url = git@github.com:Korchy/1d_drawing_split.git
