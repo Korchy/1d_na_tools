@@ -1,3 +1,6 @@
 [submodule "we_crease_from_seam"]
 	path = we_crease_from_seam
 	url = git@github.com:Korchy/1d_we_crease_from_seam.git
+[submodule "material_select"]
+	path = material_select
+	url = git@github.com:Korchy/1d_material_select.git
