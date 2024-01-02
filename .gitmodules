@@ -4,3 +4,6 @@
 [submodule "material_select"]
 	path = material_select
 	url = git@github.com:Korchy/1d_material_select.git
+[submodule "subd_tool"]
+	path = subd_tool
+	url = git@github.com:Korchy/1d_subd_tool.git

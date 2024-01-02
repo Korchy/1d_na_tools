@@ -10,6 +10,7 @@ from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
 from .we_crease_from_seam.we_crease_from_seam import WECFS
 from .material_select.material_1d_select import MaterialSelect
+from .subd_tool.subd_tool import SubdTool
 
 
 # UI
@@ -26,6 +27,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	material_select = BoolProperty(
+		default=False
+	)
+	subd_tool = BoolProperty(
 		default=False
 	)
 
@@ -66,6 +70,16 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.material_select:
 			MaterialSelect.ui(layout=layout, context=context)
+
+		# 1D Subd Storage
+		self.ui_section(
+			layout=layout,
+			context=context,
+			prop='subd_tool',
+			label='1D Subd Storage'
+		)
+		if context.scene.na_1d_tools_ui.subd_tool:
+			SubdTool.ui(layout=layout)
 
 		# EDIT TOOLS
 		self.ui_section(
