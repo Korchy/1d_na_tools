@@ -22,3 +22,6 @@
 [submodule "stairs_sketcher"]
 	path = stairs_sketcher
 	url = git@github.com:Korchy/1d_stairs_sketcher.git
+[submodule "retuber"]
+	path = retuber
+	url = git@github.com:Korchy/1d_retuber.git
