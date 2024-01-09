@@ -79,12 +79,12 @@ class NA_1D_TOOLS_PT_panel(Panel):
 	bl_label = 'NA 1D Tools'
 	bl_space_type = 'VIEW_3D'
 	bl_region_type = 'TOOLS'
-	bl_category = 'NA 1D TOOLS'
+	bl_category = '1D'
 
 	def draw(self, context):
 		layout = self.layout
 		# CONVERT
-		self.ui_section(
+		convert_box = self.ui_section(
 			layout=layout,
 			context=context,
 			prop='convert_section',
@@ -93,36 +93,37 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		if context.scene.na_1d_tools_ui.convert_section:
 			# We Crease from Seam
 			self.ui_section(
-				layout=layout,
+				layout=convert_box,
 				context=context,
 				prop='we_crease_from_seam',
-				label='We Crease from Seam'
+				label='We Crease from Seam',
+				content_box=False
 			)
 			if context.scene.na_1d_tools_ui.we_crease_from_seam:
-				WECFS.ui(layout=layout)
+				WECFS.ui(layout=convert_box)
 
 		# Material 1D Select
-		self.ui_section(
+		box = self.ui_section(
 			layout=layout,
 			context=context,
 			prop='material_select',
 			label='Material 1D Select'
 		)
 		if context.scene.na_1d_tools_ui.material_select:
-			MaterialSelect.ui(layout=layout, context=context)
+			MaterialSelect.ui(layout=box, context=context)
 
 		# 1D Subd Storage
-		self.ui_section(
+		box = self.ui_section(
 			layout=layout,
 			context=context,
 			prop='subd_tool',
 			label='1D Subd Storage'
 		)
 		if context.scene.na_1d_tools_ui.subd_tool:
-			SubdTool.ui(layout=layout)
+			SubdTool.ui(layout=box)
 
 		# EDIT TOOLS
-		self.ui_section(
+		edit_tools_box = self.ui_section(
 			layout=layout,
 			context=context,
 			prop='edit_section',
@@ -130,107 +131,107 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.edit_section:
 			# Delaunay 1D Shot
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='delaunay_1d_shot',
 				label='Delaunay 1D Shot 1.0.1'
 			)
 			if context.scene.na_1d_tools_ui.delaunay_1d_shot:
 				delaunay_voronoi_1d_ui(
-					layout=layout,
+					layout=box,
 					context=context
 				)
 			# Drawing Split
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='drawing_split',
 				label='Drawing Split'
 			)
 			if context.scene.na_1d_tools_ui.drawing_split:
-				DrawingSplit.ui(layout=layout)
+				DrawingSplit.ui(layout=box)
 			# Edges Length
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='edges_length',
 				label='Edges Length'
 			)
 			if context.scene.na_1d_tools_ui.edges_length:
 				EdgesLength.ui(
-					layout=layout,
+					layout=box,
 					context=context
 				)
 			# Height Painter
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='height_painter',
 				label='Height Painter'
 			)
 			if context.scene.na_1d_tools_ui.height_painter:
 				HeightPainter.ui(
-					layout=layout,
+					layout=box,
 					context=context
 				)
 			# Stairs Sketcher
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='stairs_sketcher',
 				label='Stairs Sketcher'
 			)
 			if context.scene.na_1d_tools_ui.stairs_sketcher:
-				StairsSketcher.ui(layout=layout)
+				StairsSketcher.ui(layout=box)
 			# Retuber
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='retuber',
 				label='Retuber'
 			)
 			if context.scene.na_1d_tools_ui.retuber:
-				Retuber.ui(layout=layout)
+				Retuber.ui(layout=box)
 			# Vitragen
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='vitragen',
 				label='Vitragen'
 			)
 			if context.scene.na_1d_tools_ui.vitragen:
 				Vitragen.ui(
-					layout=layout,
+					layout=box,
 					context=context
 				)
 			# Vertical Vertices
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='vertical_vertices',
 				label='Vertical Vertices'
 			)
 			if context.scene.na_1d_tools_ui.vertical_vertices:
 				VerticalVertices.ui(
-					layout=layout,
+					layout=box,
 					context=context
 				)
 			# Vertical
-			self.ui_section(
-				layout=layout,
+			box = self.ui_section(
+				layout=edit_tools_box,
 				context=context,
 				prop='vertical_uv',
 				label='Vertical UV'
 			)
 			if context.scene.na_1d_tools_ui.vertical_uv:
 				Vertical.ui(
-					layout=layout,
+					layout=box,
 					context=context
 				)
 
 		# Quad Bridge
-		self.ui_section(
+		box = self.ui_section(
 			layout=layout,
 			context=context,
 			prop='quad_bridge',
@@ -238,20 +239,25 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.quad_bridge:
 			quad_bridge_ui(
-				layout=layout,
+				layout=box,
 				context=context
 			)
 
 	@staticmethod
-	def ui_section(layout, context, prop, label):
-		row = layout.row()
-		icon = 'TRIA_DOWN' if getattr(context.scene.na_1d_tools_ui, prop) else 'TRIA_RIGHT'
-		row.prop(
+	def ui_section(layout, context, prop, label, content_box=True):
+		# row = layout.row()
+		icon = 'DOWNARROW_HLT' if getattr(context.scene.na_1d_tools_ui, prop) else 'RIGHTARROW'
+		layout.prop(
 			context.scene.na_1d_tools_ui,
 			prop,
 			icon=icon,
 			text=label
 		)
+		if content_box and icon == 'DOWNARROW_HLT':
+			box = layout.box().column(align=True)
+			return box
+		else:
+			return layout
 
 
 def register():

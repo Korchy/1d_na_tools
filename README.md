@@ -19,3 +19,14 @@ This toolset combines the following tools:
 For Blender:
 -
 2.79
+
+Version History
+-
+1.0.1
+- UI improving
+
+1.0.2
+- UI improving
+
+1.0.0
+- Release
