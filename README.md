@@ -2,19 +2,23 @@
 
 This toolset combines the following tools:
 
-- We Crease from Seam
-- Material 1D Select
 - 1D Subd Storage
+- Contour Sew
 - Delaunay Shot
+- Deloop
 - Drawing Split
 - Edges Length
+- F2 Snake
 - Height Painter
-- Stairs Sketcher
+- Material 1D Select
 - Retuber
-- Vitragen
-- Vertical Vertices
-- Vertical UV
+- Stairs Sketcher
 - Quad Bridge
+- Slope Loop
+- Vertical UV
+- Vertical Vertices
+- Vitragen
+- We Crease from Seam
 
 For Blender:
 -
@@ -22,6 +26,14 @@ For Blender:
 
 Version History
 -
+1.1.0
+- Added:
+  - F2 Snake
+  - Deloop
+  - Slope Loop
+  - Contour Sew
+- UI improving
+
 1.0.1
 - UI improving
 

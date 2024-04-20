@@ -37,3 +37,15 @@
 [submodule "quad_bridge"]
 	path = quad_bridge
 	url = git@github.com:Korchy/1d_quad_bridge.git
+[submodule "f2_snake"]
+	path = f2_snake
+	url = git@github.com:Korchy/1d_f2_snake.git
+[submodule "deloop"]
+	path = deloop
+	url = git@github.com:Korchy/1d_deloop.git
+[submodule "slope_loop"]
+	path = slope_loop
+	url = git@github.com:Korchy/1d_slope_loop.git
+[submodule "contour_sew"]
+	path = contour_sew
+	url = git@github.com:Korchy/1d_contour_sew.git

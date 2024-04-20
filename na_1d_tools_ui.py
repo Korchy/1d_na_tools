@@ -8,13 +8,17 @@
 from bpy.props import BoolProperty, PointerProperty
 from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
+from .contour_sew.contour_sew import ContourSew
 from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
+from .deloop.deloop import Deloop
 from .drawing_split.drawing_split import DrawingSplit
 from .edges_length.edges_length import EdgesLength
+from .f2_snake.f2_snake import F2Snake
 from .height_painter.height_painter import HeightPainter
 from .material_select.material_1d_select import MaterialSelect
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
+from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
 from .vertical.vertical import Vertical
@@ -32,7 +36,13 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	edit_section = BoolProperty(
 		default=False
 	)
+	gplan_section = BoolProperty(
+		default=False
+	)
 	# modules
+	contour_sew = BoolProperty(
+		default=False
+	)
 	we_crease_from_seam = BoolProperty(
 		default=False
 	)
@@ -45,13 +55,22 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	delaunay_1d_shot = BoolProperty(
 		default=False
 	)
+	deloop = BoolProperty(
+		default=False
+	)
 	drawing_split = BoolProperty(
 		default=False
 	)
 	edges_length = BoolProperty(
 		default=False
 	)
+	f2_snake = BoolProperty(
+		default=False
+	)
 	height_painter = BoolProperty(
+		default=False
+	)
+	slope_loop = BoolProperty(
 		default=False
 	)
 	stairs_sketcher = BoolProperty(
@@ -151,39 +170,6 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.drawing_split:
 				DrawingSplit.ui(layout=box)
-			# Edges Length
-			box = self.ui_section(
-				layout=edit_tools_box,
-				context=context,
-				prop='edges_length',
-				label='Edges Length'
-			)
-			if context.scene.na_1d_tools_ui.edges_length:
-				EdgesLength.ui(
-					layout=box,
-					context=context
-				)
-			# Height Painter
-			box = self.ui_section(
-				layout=edit_tools_box,
-				context=context,
-				prop='height_painter',
-				label='Height Painter'
-			)
-			if context.scene.na_1d_tools_ui.height_painter:
-				HeightPainter.ui(
-					layout=box,
-					context=context
-				)
-			# Stairs Sketcher
-			box = self.ui_section(
-				layout=edit_tools_box,
-				context=context,
-				prop='stairs_sketcher',
-				label='Stairs Sketcher'
-			)
-			if context.scene.na_1d_tools_ui.stairs_sketcher:
-				StairsSketcher.ui(layout=box)
 			# Retuber
 			box = self.ui_section(
 				layout=edit_tools_box,
@@ -205,18 +191,6 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=box,
 					context=context
 				)
-			# Vertical Vertices
-			box = self.ui_section(
-				layout=edit_tools_box,
-				context=context,
-				prop='vertical_vertices',
-				label='Vertical Vertices'
-			)
-			if context.scene.na_1d_tools_ui.vertical_vertices:
-				VerticalVertices.ui(
-					layout=box,
-					context=context
-				)
 			# Vertical
 			box = self.ui_section(
 				layout=edit_tools_box,
@@ -226,6 +200,108 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.vertical_uv:
 				Vertical.ui(
+					layout=box,
+					context=context
+				)
+			# F2 Snake
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='f2_snake',
+				label='F2 Snake'
+			)
+			if context.scene.na_1d_tools_ui.f2_snake:
+				F2Snake.ui(
+					layout=box,
+					context=context
+				)
+
+		# GPLAN TOOLS
+		gplan_tools_box = self.ui_section(
+			layout=layout,
+			context=context,
+			prop='gplan_section',
+			label='GPLAN TOOLS'
+		)
+		if context.scene.na_1d_tools_ui.gplan_section:
+			# Edges Length
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='edges_length',
+				label='Edges Length'
+			)
+			if context.scene.na_1d_tools_ui.edges_length:
+				EdgesLength.ui(
+					layout=box,
+					context=context
+				)
+			# Height Painter
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='height_painter',
+				label='Height Painter'
+			)
+			if context.scene.na_1d_tools_ui.height_painter:
+				HeightPainter.ui(
+					layout=box,
+					context=context
+				)
+			# Stairs Sketcher
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='stairs_sketcher',
+				label='Stairs Sketcher'
+			)
+			if context.scene.na_1d_tools_ui.stairs_sketcher:
+				StairsSketcher.ui(layout=box)
+			# Vertical Vertices
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='vertical_vertices',
+				label='Vertical Vertices'
+			)
+			if context.scene.na_1d_tools_ui.vertical_vertices:
+				VerticalVertices.ui(
+					layout=box,
+					context=context
+				)
+			# Deloop
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='deloop',
+				label='Deloop'
+			)
+			if context.scene.na_1d_tools_ui.deloop:
+				Deloop.ui(
+					layout=box,
+					context=context
+				)
+			# Slope Loop
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='slope_loop',
+				label='Slope Loop'
+			)
+			if context.scene.na_1d_tools_ui.slope_loop:
+				SlopeLoop.ui(
+					layout=box,
+					context=context
+				)
+			# Contour Sew
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='contour_sew',
+				label='Contour Sew'
+			)
+			if context.scene.na_1d_tools_ui.contour_sew:
+				ContourSew.ui(
 					layout=box,
 					context=context
 				)
