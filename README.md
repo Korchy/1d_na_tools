@@ -26,6 +26,9 @@ For Blender:
 
 Version History
 -
+1.1.1
+- Deloop updated to 1.1 version
+
 1.1.0
 - Added:
   - F2 Snake
