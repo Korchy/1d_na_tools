@@ -11,6 +11,7 @@ This toolset combines the following tools:
 - F2 Snake
 - Height Painter
 - Material 1D Select
+- Planar Edges
 - Retuber
 - Stairs Sketcher
 - Quad Bridge
@@ -26,6 +27,10 @@ For Blender:
 
 Version History
 -
+1.2.0
+- Added:
+  - Planar Edges
+
 1.1.1
 - Deloop updated to 1.1 version
 

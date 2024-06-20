@@ -18,6 +18,7 @@ from .height_painter.height_painter import HeightPainter
 from .material_select.material_1d_select import MaterialSelect
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
+from .planar_edges.planar_edges import Planar
 from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
@@ -68,6 +69,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	height_painter = BoolProperty(
+		default=False
+	)
+	planar_edges = BoolProperty(
 		default=False
 	)
 	slope_loop = BoolProperty(
@@ -302,6 +306,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.contour_sew:
 				ContourSew.ui(
+					layout=box,
+					context=context
+				)
+			# Planar Edges
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='planar_edges',
+				label='Select Planar Edges'
+			)
+			if context.scene.na_1d_tools_ui.planar_edges:
+				Planar.ui(
 					layout=box,
 					context=context
 				)

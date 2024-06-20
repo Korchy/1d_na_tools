@@ -13,6 +13,7 @@ from .edges_length import edges_length
 from .f2_snake import f2_snake
 from .height_painter import height_painter
 from .material_select import material_1d_select
+from .planar_edges import planar_edges
 from .retuber import retuber
 from .slope_loop import slope_loop
 from .stairs_sketcher import stairs_sketcher
@@ -27,7 +28,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 1, 1),
+    'version': (1, 2, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -46,6 +47,7 @@ def register():
     edges_length.register(ui=False)
     f2_snake.register(ui=False)
     height_painter.register(ui=False)
+    planar_edges.register(ui=False)
     slope_loop.register(ui=False)
     stairs_sketcher.register(ui=False)
     retuber.register(ui=False)
@@ -69,6 +71,7 @@ def unregister():
     retuber.unregister(ui=False)
     stairs_sketcher.unregister(ui=False)
     slope_loop.unregister(ui=False)
+    planar_edges.unregister(ui=False)
     height_painter.unregister(ui=False)
     f2_snake.unregister(ui=False)
     edges_length.unregister(ui=False)

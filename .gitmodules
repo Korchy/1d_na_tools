@@ -49,3 +49,6 @@
 [submodule "contour_sew"]
 	path = contour_sew
 	url = git@github.com:Korchy/1d_contour_sew.git
+[submodule "planar_edges"]
+	path = planar_edges
+	url = git@github.com:Korchy/1d_planar_edges.git
