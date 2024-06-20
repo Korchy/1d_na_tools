@@ -27,6 +27,10 @@ For Blender:
 
 Version History
 -
+1.2.1
+- Updated Deloop
+- Updated Planar Edges
+
 1.2.0
 - Added:
   - Planar Edges
