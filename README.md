@@ -27,6 +27,9 @@ For Blender:
 
 Version History
 -
+1.2.3
+- Updated Slope Loop (fixed error with angle counting)
+
 1.2.2
 - Updated Slope Loop
 
