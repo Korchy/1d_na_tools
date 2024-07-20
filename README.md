@@ -27,6 +27,9 @@ For Blender:
 
 Version History
 -
+1.2.4
+- Updated Slope Loop (fixed calculating principles of QSlope)
+
 1.2.2
 - Updated Slope Loop
 
