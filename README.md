@@ -27,6 +27,10 @@ For Blender:
 
 Version History
 -
+1.2.6
+- Updated Slope Loop
+  - Added multi loops processing support
+
 1.2.5
 - Updated Deloop
   - Added Edgehog function
