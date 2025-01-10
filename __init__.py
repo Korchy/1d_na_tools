@@ -6,6 +6,7 @@
 
 from . import delaunay_1d_shot
 from . import quad_bridge
+from .connect_loop import connect_loop
 from .contour_sew import contour_sew
 from .deloop import deloop
 from .drawing_split import drawing_split
@@ -28,7 +29,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 2, 6),
+    'version': (1, 3, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -40,6 +41,7 @@ bl_info = {
 def register():
     material_1d_select.register(ui=False)
     subd_tool.register(ui=False)
+    connect_loop.register(ui=False)
     contour_sew.register(ui=False)
     delaunay_1d_shot.register(ui=False)
     deloop.register(ui=False)
@@ -79,6 +81,7 @@ def unregister():
     deloop.unregister(ui=False)
     delaunay_1d_shot.unregister(ui=False)
     contour_sew.unregister(ui=False)
+    connect_loop.unregister(ui=False)
     subd_tool.unregister(ui=False)
     material_1d_select.unregister(ui=False)
 

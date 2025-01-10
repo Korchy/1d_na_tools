@@ -8,6 +8,7 @@
 from bpy.props import BoolProperty, PointerProperty
 from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
+from .connect_loop.connect_loop import ConnectLoop
 from .contour_sew.contour_sew import ContourSew
 from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
 from .deloop.deloop import Deloop
@@ -41,6 +42,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	# modules
+	connect_loop = BoolProperty(
+		default=False
+	)
 	contour_sew = BoolProperty(
 		default=False
 	)
@@ -318,6 +322,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.planar_edges:
 				Planar.ui(
+					layout=box,
+					context=context
+				)
+			# Connect Loop
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='connect_loop',
+				label='Connect Loop'
+			)
+			if context.scene.na_1d_tools_ui.connect_loop:
+				ConnectLoop.ui(
 					layout=box,
 					context=context
 				)

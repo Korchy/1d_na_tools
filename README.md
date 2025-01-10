@@ -3,6 +3,7 @@
 This toolset combines the following tools:
 
 - 1D Subd Storage
+- Connect Loop
 - Contour Sew
 - Delaunay Shot
 - Deloop
@@ -25,11 +26,18 @@ For Blender:
 -
 2.79
 
+Current Version
+-
+1.3.0
+
 Version History
 -
+1.3.0
+- Added the Connect Loop
+
 1.2.6
 - Updated Slope Loop
-  - Added multi loops processing support
+  - Added multi loops processing support for QSlope
 
 1.2.5
 - Updated Deloop

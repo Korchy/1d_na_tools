@@ -52,3 +52,6 @@
 [submodule "planar_edges"]
 	path = planar_edges
 	url = git@github.com:Korchy/1d_planar_edges.git
+[submodule "connect_loop"]
+	path = connect_loop
+	url = git@github.com:Korchy/1d_connect_loop.git
