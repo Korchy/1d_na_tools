@@ -28,10 +28,13 @@ For Blender:
 
 Current Version
 -
-1.3.0
+1.3.1
 
 Version History
 -
+1.3.1
+- "Paint polygons" operator renamed to "Paint polygons pt"
+
 1.3.0
 - Added the Connect Loop
 
