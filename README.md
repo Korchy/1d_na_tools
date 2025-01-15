@@ -28,22 +28,26 @@ For Blender:
 
 Current Version
 -
-1.3.1
+1.3.2
 
 Version History
+-
+1.3.2
+- "Connect Loop" updated
+
 -
 1.3.1
 - "Paint polygons" operator renamed to "Paint polygons pt"
 
 1.3.0
-- Added the Connect Loop
+- Added the "Connect Loop"
 
 1.2.6
-- Updated Slope Loop
+- Updated "Slope Loop"
   - Added multi loops processing support for QSlope
 
 1.2.5
-- Updated Deloop
+- Updated "Deloop"
   - Added Edgehog function
 
 1.2.4
