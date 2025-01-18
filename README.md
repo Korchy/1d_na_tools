@@ -14,6 +14,7 @@ This toolset combines the following tools:
 - Material 1D Select
 - Planar Edges
 - Retuber
+- Rotten Rotation
 - Stairs Sketcher
 - Quad Bridge
 - Slope Loop
@@ -28,14 +29,16 @@ For Blender:
 
 Current Version
 -
-1.3.2
+1.4.0
 
 Version History
 -
+1.4.0
+- Added the "Rotten Rotation"
+
 1.3.2
 - "Connect Loop" updated
 
--
 1.3.1
 - "Paint polygons" operator renamed to "Paint polygons pt"
 

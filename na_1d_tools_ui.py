@@ -19,6 +19,7 @@ from .height_painter.height_painter import HeightPainter
 from .material_select.material_1d_select import MaterialSelect
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
+from .rotten_rotation.rotten_rotation import RottenRotation
 from .planar_edges.planar_edges import Planar
 from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
@@ -85,6 +86,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	retuber = BoolProperty(
+		default=False
+	)
+	rotten_rotation = BoolProperty(
 		default=False
 	)
 	vitragen = BoolProperty(
@@ -220,6 +224,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.f2_snake:
 				F2Snake.ui(
+					layout=box,
+					context=context
+				)
+			# Rotten Rotation
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='rotten_rotation',
+				label='Rotten Rotation'
+			)
+			if context.scene.na_1d_tools_ui.rotten_rotation:
+				RottenRotation.ui(
 					layout=box,
 					context=context
 				)

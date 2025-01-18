@@ -16,6 +16,7 @@ from .height_painter import height_painter
 from .material_select import material_1d_select
 from .planar_edges import planar_edges
 from .retuber import retuber
+from .rotten_rotation import rotten_rotation
 from .slope_loop import slope_loop
 from .stairs_sketcher import stairs_sketcher
 from .subd_tool import subd_tool
@@ -29,7 +30,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 3, 2),
+    'version': (1, 4, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -53,6 +54,7 @@ def register():
     slope_loop.register(ui=False)
     stairs_sketcher.register(ui=False)
     retuber.register(ui=False)
+    rotten_rotation.register(ui=False)
     vitragen.register(ui=False)
     vertical_vertices.register(ui=False)
     vertical.register(ui=False)
@@ -70,6 +72,7 @@ def unregister():
     vertical.unregister(ui=False)
     vertical_vertices.unregister(ui=False)
     vitragen.unregister(ui=False)
+    rotten_rotation.unregister(ui=False)
     retuber.unregister(ui=False)
     stairs_sketcher.unregister(ui=False)
     slope_loop.unregister(ui=False)
