@@ -55,3 +55,6 @@
 [submodule "connect_loop"]
 	path = connect_loop
 	url = git@github.com:Korchy/1d_connect_loop.git
+[submodule "rotten_rotation"]
+	path = rotten_rotation
+	url = git@github.com:Korchy/1d_rotten_rotation.git
