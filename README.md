@@ -29,10 +29,13 @@ For Blender:
 
 Current Version
 -
-1.4.0
+1.4.1
 
 Version History
 -
+1.4.1
+- "Rotten Rotation" updated
+
 1.4.0
 - Added the "Rotten Rotation"
 
