@@ -30,10 +30,13 @@ For Blender:
 
 Current Version
 -
-1.5.0
+1.5.1
 
 Version History
 -
+1.5.1
+- "Import LST" updated
+
 1.5.0
 - Added the "Import LST" module
 
