@@ -16,6 +16,7 @@ from .drawing_split.drawing_split import DrawingSplit
 from .edges_length.edges_length import EdgesLength
 from .f2_snake.f2_snake import F2Snake
 from .height_painter.height_painter import HeightPainter
+from .import_lst.import_lst import ImportLST
 from .material_select.material_1d_select import MaterialSelect
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
@@ -74,6 +75,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	height_painter = BoolProperty(
+		default=False
+	)
+	import_lst = BoolProperty(
 		default=False
 	)
 	planar_edges = BoolProperty(
@@ -350,6 +354,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.connect_loop:
 				ConnectLoop.ui(
+					layout=box,
+					context=context
+				)
+			# Import LST
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='import_lst',
+				label='Import LST'
+			)
+			if context.scene.na_1d_tools_ui.import_lst:
+				ImportLST.ui(
 					layout=box,
 					context=context
 				)

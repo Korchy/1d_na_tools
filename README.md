@@ -11,6 +11,7 @@ This toolset combines the following tools:
 - Edges Length
 - F2 Snake
 - Height Painter
+- Import LST
 - Material 1D Select
 - Planar Edges
 - Retuber
@@ -29,10 +30,13 @@ For Blender:
 
 Current Version
 -
-1.4.1
+1.5.0
 
 Version History
 -
+1.5.0
+- Added the "Import LST" module
+
 1.4.1
 - "Rotten Rotation" updated
 

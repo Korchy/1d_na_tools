@@ -58,3 +58,6 @@
 [submodule "rotten_rotation"]
 	path = rotten_rotation
 	url = git@github.com:Korchy/1d_rotten_rotation.git
+[submodule "import_lst"]
+	path = import_lst
+	url = git@github.com:Korchy/1d_import_lst.git
