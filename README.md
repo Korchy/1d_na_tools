@@ -30,10 +30,13 @@ For Blender:
 
 Current Version
 -
-1.5.2
+1.5.3
 
 Version History
 -
+1.5.3
+- "Material Select" updated
+
 1.5.2
 - "Import LST" updated
 
