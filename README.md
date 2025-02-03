@@ -34,6 +34,9 @@ Current Version
 
 Version History
 -
+1.5.5
+- "Material Select" updated
+
 1.5.4
 - "Material Select" updated
 
