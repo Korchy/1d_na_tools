@@ -142,7 +142,8 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			layout=layout,
 			context=context,
 			prop='material_select',
-			label='Material 1D Select'
+			label='Material 1D Select',
+			align=False
 		)
 		if context.scene.na_1d_tools_ui.material_select:
 			MaterialSelect.ui(layout=box, context=context)
@@ -384,7 +385,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 
 	@staticmethod
-	def ui_section(layout, context, prop, label, content_box=True):
+	def ui_section(layout, context, prop, label, content_box=True, align=True):
 		# row = layout.row()
 		icon = 'DOWNARROW_HLT' if getattr(context.scene.na_1d_tools_ui, prop) else 'RIGHTARROW'
 		layout.prop(
@@ -394,7 +395,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			text=label
 		)
 		if content_box and icon == 'DOWNARROW_HLT':
-			box = layout.box().column(align=True)
+			box = layout.box().column(align=align)
 			return box
 		else:
 			return layout
