@@ -30,10 +30,13 @@ For Blender:
 
 Current Version
 -
-1.5.6
+1.5.7
 
 Version History
 -
+1.5.7
+- "Material Select" updated
+
 1.5.6
 - "Material Select" updated
 
