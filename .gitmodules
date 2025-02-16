@@ -61,3 +61,6 @@
 [submodule "import_lst"]
 	path = import_lst
 	url = git@github.com:Korchy/1d_import_lst.git
+[submodule "na_1d_tools_misc"]
+	path = na_1d_tools_misc
+	url = git@github.com:Korchy/1d_na_tools_misc.git
