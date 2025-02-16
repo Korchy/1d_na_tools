@@ -13,6 +13,7 @@ This toolset combines the following tools:
 - Height Painter
 - Import LST
 - Material 1D Select
+- NA 1D Tools Misc
 - Planar Edges
 - Retuber
 - Rotten Rotation
@@ -30,10 +31,13 @@ For Blender:
 
 Current Version
 -
-1.5.8
+1.6.0
 
 Version History
 -
+1.6.0
+- "NA 1D Tools Misc" added
+
 1.5.8
 - "Material Select" updated
 

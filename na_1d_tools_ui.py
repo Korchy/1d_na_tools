@@ -18,6 +18,7 @@ from .f2_snake.f2_snake import F2Snake
 from .height_painter.height_painter import HeightPainter
 from .import_lst.import_lst import ImportLST
 from .material_select.material_1d_select import MaterialSelect
+from .na_1d_tools_misc.na_1d_tools_misc import NA1DToolsMisc
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
 from .rotten_rotation.rotten_rotation import RottenRotation
@@ -54,6 +55,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	material_select = BoolProperty(
+		default=False
+	)
+	na_1d_tools_misc = BoolProperty(
 		default=False
 	)
 	subd_tool = BoolProperty(
@@ -241,6 +245,19 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.rotten_rotation:
 				RottenRotation.ui(
+					layout=box,
+					context=context
+				)
+			# NA 1D Tools Misc
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='na_1d_tools_misc',
+				label='Misc',
+				align=False
+			)
+			if context.scene.na_1d_tools_ui.na_1d_tools_misc:
+				NA1DToolsMisc.ui(
 					layout=box,
 					context=context
 				)

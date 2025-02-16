@@ -15,6 +15,7 @@ from .f2_snake import f2_snake
 from .height_painter import height_painter
 from .import_lst import import_lst
 from .material_select import material_1d_select
+from .na_1d_tools_misc import na_1d_tools_misc
 from .planar_edges import planar_edges
 from .retuber import retuber
 from .rotten_rotation import rotten_rotation
@@ -31,7 +32,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 5, 8),
+    'version': (1, 6, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -42,6 +43,7 @@ bl_info = {
 
 def register():
     material_1d_select.register(ui=False)
+    na_1d_tools_misc.register(ui=False)
     subd_tool.register(ui=False)
     connect_loop.register(ui=False)
     contour_sew.register(ui=False)
@@ -89,6 +91,7 @@ def unregister():
     contour_sew.unregister(ui=False)
     connect_loop.unregister(ui=False)
     subd_tool.unregister(ui=False)
+    na_1d_tools_misc.unregister(ui=False)
     material_1d_select.unregister(ui=False)
 
 
