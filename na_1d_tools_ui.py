@@ -21,11 +21,12 @@ from .material_select.material_1d_select import MaterialSelect
 from .na_1d_tools_misc.na_1d_tools_misc import NA1DToolsMisc
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
-from .rotten_rotation.rotten_rotation import RottenRotation
 from .planar_edges.planar_edges import Planar
 from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
+from .un_negative.rotten_rotation import RottenRotation
+from .un_negative.unnegative_scale import UnnegativeScale
 from .vertical.vertical import Vertical
 from .vertical_vertices.vertical_vertices import VerticalVertices
 from .vitragen.vitragen import Vitragen
@@ -259,7 +260,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 				label='Unnegative Scale'
 			)
 			if context.scene.na_1d_tools_ui.unnegative_scale:
-				RottenRotation.ui(
+				UnnegativeScale.ui(
 					layout=box,
 					context=context
 				)

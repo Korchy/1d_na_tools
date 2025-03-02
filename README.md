@@ -16,7 +16,9 @@ This toolset combines the following tools:
 - NA 1D Tools Misc
 - Planar Edges
 - Retuber
-- Rotten Rotation
+- Un Negative
+  - Rotten Rotation
+  - Unnegative Scale
 - Stairs Sketcher
 - Quad Bridge
 - Slope Loop
@@ -31,10 +33,13 @@ For Blender:
 
 Current Version
 -
-1.6.0
+1.7.0
 
 Version History
 -
+1.7.0
+- "Unnegative Scale" added
+
 1.6.0
 - "NA 1D Tools Misc" added
 

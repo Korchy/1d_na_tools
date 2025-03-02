@@ -61,3 +61,6 @@
 [submodule "na_1d_tools_misc"]
 	path = na_1d_tools_misc
 	url = git@github.com:Korchy/1d_na_tools_misc.git
+[submodule "un_negative"]
+	path = un_negative
+	url = git@github.com:Korchy/1d_un_negative.git
