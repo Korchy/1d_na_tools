@@ -99,6 +99,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	rotten_rotation = BoolProperty(
 		default=False
 	)
+	unnegative_scale = BoolProperty(
+		default=False
+	)
 	vitragen = BoolProperty(
 		default=False
 	)
@@ -244,6 +247,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 				label='Rotten Rotation'
 			)
 			if context.scene.na_1d_tools_ui.rotten_rotation:
+				RottenRotation.ui(
+					layout=box,
+					context=context
+				)
+			# Unnegative Scale
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='unnegative_scale',
+				label='Unnegative Scale'
+			)
+			if context.scene.na_1d_tools_ui.unnegative_scale:
 				RottenRotation.ui(
 					layout=box,
 					context=context
