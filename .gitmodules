@@ -64,3 +64,6 @@
 [submodule "un_negative"]
 	path = un_negative
 	url = git@github.com:Korchy/1d_un_negative.git
+[submodule "dlevel"]
+	path = dlevel
+	url = git@github.com:Korchy/1d_dlevel.git

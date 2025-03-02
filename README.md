@@ -7,6 +7,7 @@ This toolset combines the following tools:
 - Contour Sew
 - Delaunay Shot
 - Deloop
+- DLevel
 - Drawing Split
 - Edges Length
 - F2 Snake
@@ -33,11 +34,14 @@ For Blender:
 
 Current Version
 -
-1.7.0
+1.8.0
 
 Version History
 -
-1.7.0
+1.8.0
+- "DLevel" added
+
+1.8.0
 - "Unnegative Scale" added
 
 1.6.0

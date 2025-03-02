@@ -12,6 +12,7 @@ from .connect_loop.connect_loop import ConnectLoop
 from .contour_sew.contour_sew import ContourSew
 from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
 from .deloop.deloop import Deloop
+from .dlevel.dlevel import DLevel
 from .drawing_split.drawing_split import DrawingSplit
 from .edges_length.edges_length import EdgesLength
 from .f2_snake.f2_snake import F2Snake
@@ -68,6 +69,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	deloop = BoolProperty(
+		default=False
+	)
+	dlevel = BoolProperty(
 		default=False
 	)
 	drawing_split = BoolProperty(
@@ -400,6 +404,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.import_lst:
 				ImportLST.ui(
+					layout=box,
+					context=context
+				)
+			# DLevel
+			box = self.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='dlevel',
+				label='DLevel'
+			)
+			if context.scene.na_1d_tools_ui.dlevel:
+				DLevel.ui(
 					layout=box,
 					context=context
 				)

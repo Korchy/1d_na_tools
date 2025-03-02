@@ -9,6 +9,7 @@ from . import quad_bridge
 from .connect_loop import connect_loop
 from .contour_sew import contour_sew
 from .deloop import deloop
+from .dlevel import dlevel
 from .drawing_split import drawing_split
 from .edges_length import edges_length
 from .f2_snake import f2_snake
@@ -50,6 +51,7 @@ def register():
     contour_sew.register(ui=False)
     delaunay_1d_shot.register(ui=False)
     deloop.register(ui=False)
+    dlevel.register(ui=False)
     drawing_split.register(ui=False)
     edges_length.register(ui=False)
     f2_snake.register(ui=False)
@@ -89,6 +91,7 @@ def unregister():
     f2_snake.unregister(ui=False)
     edges_length.unregister(ui=False)
     drawing_split.unregister(ui=False)
+    dlevel.unregister(ui=False)
     deloop.unregister(ui=False)
     delaunay_1d_shot.unregister(ui=False)
     contour_sew.unregister(ui=False)
