@@ -34,15 +34,16 @@ For Blender:
 
 Current Version
 -
-1.8.0
+1.7.1
 
 Version History
 -
-1.8.0
-- "DLevel" added
+1.7.1
+- Some updates in "Unnegative Scale" and "DLevel"
 
-1.8.0
+1.7.0
 - "Unnegative Scale" added
+- "DLevel" added
 
 1.6.0
 - "NA 1D Tools Misc" added
