@@ -26,6 +26,7 @@ from .planar_edges.planar_edges import Planar
 from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .subd_tool.subd_tool import SubdTool
+from .un_negative.filter_uniformly_scaled import FilterUniformlyScaled
 from .un_negative.rotten_rotation import RottenRotation
 from .un_negative.unnegative_scale import UnnegativeScale
 from .vertical.vertical import Vertical
@@ -78,6 +79,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	edges_length = BoolProperty(
+		default=False
+	)
+	filter_uniformly_scaled = BoolProperty(
 		default=False
 	)
 	f2_snake = BoolProperty(
@@ -265,6 +269,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.unnegative_scale:
 				UnnegativeScale.ui(
+					layout=box,
+					context=context
+				)
+			# Filter Uniformly Scaled
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='filter_uniformly_scaled',
+				label='FilterUniformlyScaled'
+			)
+			if context.scene.na_1d_tools_ui.filter_uniformly_scaled:
+				FilterUniformlyScaled.ui(
 					layout=box,
 					context=context
 				)

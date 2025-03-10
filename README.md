@@ -20,6 +20,7 @@ This toolset combines the following tools:
 - Un Negative
   - Rotten Rotation
   - Unnegative Scale
+  - Filter Uniformly Scaled
 - Stairs Sketcher
 - Quad Bridge
 - Slope Loop
@@ -34,10 +35,13 @@ For Blender:
 
 Current Version
 -
-1.7.1
+1.8.0
 
 Version History
 -
+1.8.0
+- "Filter Uniformly Scaled" added
+
 1.7.1
 - Some updates in "Unnegative Scale" and "DLevel"
 

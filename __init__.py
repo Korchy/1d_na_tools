@@ -22,6 +22,7 @@ from .retuber import retuber
 from .slope_loop import slope_loop
 from .stairs_sketcher import stairs_sketcher
 from .subd_tool import subd_tool
+from .un_negative import filter_uniformly_scaled
 from .un_negative import rotten_rotation
 from .un_negative import unnegative_scale
 from .vertical import vertical
@@ -34,7 +35,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 7, 1),
+    'version': (1, 8, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -55,6 +56,7 @@ def register():
     drawing_split.register(ui=False)
     edges_length.register(ui=False)
     f2_snake.register(ui=False)
+    filter_uniformly_scaled.register(ui=False)
     height_painter.register(ui=False)
     import_lst.register(ui=False)
     planar_edges.register(ui=False)
@@ -88,6 +90,7 @@ def unregister():
     planar_edges.unregister(ui=False)
     import_lst.unregister(ui=False)
     height_painter.unregister(ui=False)
+    filter_uniformly_scaled.unregister(ui=False)
     f2_snake.unregister(ui=False)
     edges_length.unregister(ui=False)
     drawing_split.unregister(ui=False)
