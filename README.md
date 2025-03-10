@@ -39,6 +39,9 @@ Current Version
 
 Version History
 -
+1.8.1
+- Reduce rotation along Z-axis to < 2*PI in Rotten Rotation
+
 1.8.0
 - "Filter Uniformly Scaled" added
 
