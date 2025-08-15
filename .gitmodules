@@ -82,3 +82,6 @@
 [submodule "obj_tools"]
 	path = obj_tools
 	url = git@github.com:Korchy/1d_obj_tools.git
+[submodule "view_switch"]
+	path = view_switch
+	url = git@github.com:Korchy/1d_view_switch.git

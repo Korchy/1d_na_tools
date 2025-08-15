@@ -36,6 +36,7 @@ from .un_negative.rotten_rotation import RottenRotation
 from .un_negative.unnegative_scale import UnnegativeScale
 from .vertical.vertical import Vertical
 from .vertical_vertices.vertical_vertices import VerticalVertices
+from .view_switch.view_switch import Viewswitch
 from .vitragen.vitragen import Vitragen
 from .we_crease_from_seam.we_crease_from_seam import WECFS
 
@@ -135,13 +136,16 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	unnegative_scale = BoolProperty(
 		default=False
 	)
-	vitragen = BoolProperty(
-		default=False
-	)
 	vertical_vertices = BoolProperty(
 		default=False
 	)
 	vertical_uv = BoolProperty(
+		default=False
+	)
+	view_switch = BoolProperty(
+		default=False
+	)
+	vitragen = BoolProperty(
 		default=False
 	)
 	we_crease_from_seam = BoolProperty(
@@ -240,6 +244,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.arc_3:
 				Arc3.ui(
+					layout=box,
+					context=context
+				)
+			# View Switch
+			box = self.ui_section(
+				layout=sketch_tools_box,
+				context=context,
+				prop='view_switch',
+				label='View Switch'
+			)
+			if context.scene.na_1d_tools_ui.view_switch:
+				Viewswitch.ui(
 					layout=box,
 					context=context
 				)

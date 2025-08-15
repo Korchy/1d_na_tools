@@ -31,6 +31,7 @@ This toolset combines the following tools:
   - Filter Uniformly Scaled
 - Vertical Vertices
 - Vertical UV
+- View Switch
 - Vitragen
 - We Crease from Seam
 
@@ -40,10 +41,13 @@ For Blender:
 
 Current Version
 -
-1.9.0
+1.10.0
 
 Version History
 -
+1.10.0
+- "View Switch" added
+
 1.9.0
 - "Step Extrude" added
 - "3 Points Arc" added
