@@ -3,8 +3,10 @@
 This toolset combines the following tools:
 
 - 1D Subd Storage
+- 3 Points Arc
 - Connect Loop
 - Contour Sew
+- Corner Fill
 - Delaunay Shot
 - Deloop
 - DLevel
@@ -14,18 +16,21 @@ This toolset combines the following tools:
 - Height Painter
 - Import LST
 - Material 1D Select
+- Mesh Decompose
 - NA 1D Tools Misc
+- Obj Tools
 - Planar Edges
+- Quad Bridge
 - Retuber
+- Slope Loop
+- Step Extrude
+- Stairs Sketcher
 - Un Negative
   - Rotten Rotation
   - Unnegative Scale
   - Filter Uniformly Scaled
-- Stairs Sketcher
-- Quad Bridge
-- Slope Loop
-- Vertical UV
 - Vertical Vertices
+- Vertical UV
 - Vitragen
 - We Crease from Seam
 
@@ -35,10 +40,17 @@ For Blender:
 
 Current Version
 -
-1.8.0
+1.9.0
 
 Version History
 -
+1.9.0
+- "Step Extrude" added
+- "3 Points Arc" added
+- "Mesh Decompose" added
+- "Corner Fill" added
+- "Obj Shift" (Obj Tools) added
+
 1.8.1
 - Reduce rotation along Z-axis to < 2*PI in Rotten Rotation
 

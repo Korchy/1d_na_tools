@@ -8,8 +8,10 @@
 from bpy.props import BoolProperty, PointerProperty
 from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
+from .arc_3.arc_3 import Arc3
 from .connect_loop.connect_loop import ConnectLoop
 from .contour_sew.contour_sew import ContourSew
+from .corner_fill.corner_fill import CornerFill
 from .delaunay_1d_shot.delaunay_voronoi_1d_panel import ui as delaunay_voronoi_1d_ui
 from .deloop.deloop import Deloop
 from .dlevel.dlevel import DLevel
@@ -19,12 +21,15 @@ from .f2_snake.f2_snake import F2Snake
 from .height_painter.height_painter import HeightPainter
 from .import_lst.import_lst import ImportLST
 from .material_select.material_1d_select import MaterialSelect
+from .mesh_decompose.mesh_decompose import MeshDecompose
 from .na_1d_tools_misc.na_1d_tools_misc import NA1DToolsMisc
+from .obj_tools.obj_tools import OBJTools
+from .planar_edges.planar_edges import Planar
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
-from .planar_edges.planar_edges import Planar
 from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
+from .step_extrude.step_extrude import StepExtrude
 from .subd_tool.subd_tool import SubdTool
 from .un_negative.filter_uniformly_scaled import FilterUniformlyScaled
 from .un_negative.rotten_rotation import RottenRotation
@@ -44,26 +49,24 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	edit_section = BoolProperty(
 		default=False
 	)
+	sketch_tools_section = BoolProperty(
+		default=False
+	)
 	gplan_section = BoolProperty(
 		default=False
 	)
+
 	# modules
+	arc_3 = BoolProperty(
+		default=False
+	)
 	connect_loop = BoolProperty(
 		default=False
 	)
 	contour_sew = BoolProperty(
 		default=False
 	)
-	we_crease_from_seam = BoolProperty(
-		default=False
-	)
-	material_select = BoolProperty(
-		default=False
-	)
-	na_1d_tools_misc = BoolProperty(
-		default=False
-	)
-	subd_tool = BoolProperty(
+	corner_fill = BoolProperty(
 		default=False
 	)
 	delaunay_1d_shot = BoolProperty(
@@ -93,7 +96,28 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	import_lst = BoolProperty(
 		default=False
 	)
+	material_select = BoolProperty(
+		default=False
+	)
+	mesh_decompose = BoolProperty(
+		default=False
+	)
+	na_1d_tools_misc = BoolProperty(
+		default=False
+	)
+	obj_tools = BoolProperty(
+		default=False
+	)
 	planar_edges = BoolProperty(
+		default=False
+	)
+	quad_bridge = BoolProperty(
+		default=False
+	)
+	retuber = BoolProperty(
+		default=False
+	)
+	rotten_rotation = BoolProperty(
 		default=False
 	)
 	slope_loop = BoolProperty(
@@ -102,10 +126,10 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	stairs_sketcher = BoolProperty(
 		default=False
 	)
-	retuber = BoolProperty(
+	step_extrude = BoolProperty(
 		default=False
 	)
-	rotten_rotation = BoolProperty(
+	subd_tool = BoolProperty(
 		default=False
 	)
 	unnegative_scale = BoolProperty(
@@ -120,7 +144,7 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	vertical_uv = BoolProperty(
 		default=False
 	)
-	quad_bridge = BoolProperty(
+	we_crease_from_seam = BoolProperty(
 		default=False
 	)
 
@@ -152,6 +176,19 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.we_crease_from_seam:
 				WECFS.ui(layout=convert_box)
+			# Obj Tools
+			self.ui_section(
+				layout=convert_box,
+				context=context,
+				prop='obj_tools',
+				label='Obj Shift',
+				content_box=False
+			)
+			if context.scene.na_1d_tools_ui.obj_tools:
+				OBJTools.ui(
+					layout=convert_box,
+					context=context
+				)
 
 		# Material 1D Select
 		box = self.ui_section(
@@ -173,6 +210,39 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.subd_tool:
 			SubdTool.ui(layout=box)
+
+		# SKETCH TOOLS
+		sketch_tools_box = self.ui_section(
+			layout=layout,
+			context=context,
+			prop='sketch_tools_section',
+			label='SKETCH TOOLS'
+		)
+		if context.scene.na_1d_tools_ui.sketch_tools_section:
+			# Step Extrude
+			box = self.ui_section(
+				layout=sketch_tools_box,
+				context=context,
+				prop='step_extrude',
+				label='Step Extrude'
+			)
+			if context.scene.na_1d_tools_ui.step_extrude:
+				StepExtrude.ui(
+					layout=box,
+					context=context
+				)
+			# 3 Points Arc (Arc_3)
+			box = self.ui_section(
+				layout=sketch_tools_box,
+				context=context,
+				prop='arc_3',
+				label='3 Points Arc'
+			)
+			if context.scene.na_1d_tools_ui.arc_3:
+				Arc3.ui(
+					layout=box,
+					context=context
+				)
 
 		# EDIT TOOLS
 		edit_tools_box = self.ui_section(
@@ -294,6 +364,32 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.na_1d_tools_misc:
 				NA1DToolsMisc.ui(
+					layout=box,
+					context=context
+				)
+			# Mesh Decompose
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='mesh_decompose',
+				label='Mesh Decompose',
+				align=False
+			)
+			if context.scene.na_1d_tools_ui.mesh_decompose:
+				MeshDecompose.ui(
+					layout=box,
+					context=context
+				)
+			# Corner Fill
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='corner_fill',
+				label='Corner Fill',
+				align=False
+			)
+			if context.scene.na_1d_tools_ui.corner_fill:
+				CornerFill.ui(
 					layout=box,
 					context=context
 				)

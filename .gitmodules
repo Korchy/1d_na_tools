@@ -67,3 +67,18 @@
 [submodule "dlevel"]
 	path = dlevel
 	url = git@github.com:Korchy/1d_dlevel.git
+[submodule "step_extrude"]
+	path = step_extrude
+	url = git@github.com:Korchy/1d_step_extrude.git
+[submodule "arc_3"]
+	path = arc_3
+	url = git@github.com:Korchy/1d_arc_3.git
+[submodule "mesh_decompose"]
+	path = mesh_decompose
+	url = git@github.com:Korchy/1d_mesh_decompose.git
+[submodule "corner_fill"]
+	path = corner_fill
+	url = git@github.com:Korchy/1d_corner_fill.git
+[submodule "obj_tools"]
+	path = obj_tools
+	url = git@github.com:Korchy/1d_obj_tools.git

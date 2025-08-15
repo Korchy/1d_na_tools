@@ -6,8 +6,10 @@
 
 from . import delaunay_1d_shot
 from . import quad_bridge
+from .arc_3 import arc_3
 from .connect_loop import connect_loop
 from .contour_sew import contour_sew
+from .corner_fill import corner_fill
 from .deloop import deloop
 from .dlevel import dlevel
 from .drawing_split import drawing_split
@@ -16,10 +18,13 @@ from .f2_snake import f2_snake
 from .height_painter import height_painter
 from .import_lst import import_lst
 from .material_select import material_1d_select
+from .mesh_decompose import mesh_decompose
 from .na_1d_tools_misc import na_1d_tools_misc
+from .obj_tools import obj_tools
 from .planar_edges import planar_edges
 from .retuber import retuber
 from .slope_loop import slope_loop
+from .step_extrude import step_extrude
 from .stairs_sketcher import stairs_sketcher
 from .subd_tool import subd_tool
 from .un_negative import filter_uniformly_scaled
@@ -35,7 +40,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 8, 1),
+    'version': (1, 9, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -45,11 +50,13 @@ bl_info = {
 
 
 def register():
+    arc_3.register(ui=False)
     material_1d_select.register(ui=False)
     na_1d_tools_misc.register(ui=False)
     subd_tool.register(ui=False)
     connect_loop.register(ui=False)
     contour_sew.register(ui=False)
+    corner_fill.register(ui=False)
     delaunay_1d_shot.register(ui=False)
     deloop.register(ui=False)
     dlevel.register(ui=False)
@@ -59,8 +66,11 @@ def register():
     filter_uniformly_scaled.register(ui=False)
     height_painter.register(ui=False)
     import_lst.register(ui=False)
+    mesh_decompose.register(ui=False)
+    obj_tools.register(ui=False)
     planar_edges.register(ui=False)
     slope_loop.register(ui=False)
+    step_extrude.register(ui=False)
     stairs_sketcher.register(ui=False)
     retuber.register(ui=False)
     rotten_rotation.register(ui=False)
@@ -86,8 +96,11 @@ def unregister():
     rotten_rotation.unregister(ui=False)
     retuber.unregister(ui=False)
     stairs_sketcher.unregister(ui=False)
+    step_extrude.unregister(ui=False)
     slope_loop.unregister(ui=False)
     planar_edges.unregister(ui=False)
+    obj_tools.unregister(ui=False)
+    mesh_decompose.unregister(ui=False)
     import_lst.unregister(ui=False)
     height_painter.unregister(ui=False)
     filter_uniformly_scaled.unregister(ui=False)
@@ -97,11 +110,13 @@ def unregister():
     dlevel.unregister(ui=False)
     deloop.unregister(ui=False)
     delaunay_1d_shot.unregister(ui=False)
+    corner_fill.unregister(ui=False)
     contour_sew.unregister(ui=False)
     connect_loop.unregister(ui=False)
     subd_tool.unregister(ui=False)
     na_1d_tools_misc.unregister(ui=False)
     material_1d_select.unregister(ui=False)
+    arc_3.unregister(ui=False)
 
 
 if __name__ == "__main__":
