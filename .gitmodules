@@ -85,3 +85,6 @@
 [submodule "view_switch"]
 	path = view_switch
 	url = git@github.com:Korchy/1d_view_switch.git
+[submodule "shape_loop"]
+	path = shape_loop
+	url = git@github.com:Korchy/1d_shape_loop.git

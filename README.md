@@ -41,10 +41,16 @@ For Blender:
 
 Current Version
 -
-1.10.0
+1.11.0
 
 Version History
 -
+1.11.0
+- Added version number to the add-on title
+- "Deloop" updated
+- "Material Select" updated
+- "Shape Loop" added
+
 1.10.0
 - "View Switch" added
 

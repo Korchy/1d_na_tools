@@ -5,6 +5,7 @@
 #   https://github.com/Korchy/1d_na_tools
 
 
+from .__init__ import bl_info
 from bpy.props import BoolProperty, PointerProperty
 from bpy.types import Panel, PropertyGroup, Scene
 from bpy.utils import register_class, unregister_class
@@ -27,6 +28,7 @@ from .obj_tools.obj_tools import OBJTools
 from .planar_edges.planar_edges import Planar
 from .quad_bridge.quadbridge_panel import ui as quad_bridge_ui
 from .retuber.retuber import Retuber
+from .shape_loop.shape_loop import ShapeLoop
 from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .step_extrude.step_extrude import StepExtrude
@@ -121,6 +123,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	rotten_rotation = BoolProperty(
 		default=False
 	)
+	shape_loop = BoolProperty(
+		default=False
+	)
 	slope_loop = BoolProperty(
 		default=False
 	)
@@ -155,10 +160,14 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 
 class NA_1D_TOOLS_PT_panel(Panel):
 	bl_idname = 'NA_1D_TOOLS_PT_panel'
-	bl_label = 'NA 1D Tools'
+	bl_label = ' '	# will be overridden in draw_header()
 	bl_space_type = 'VIEW_3D'
 	bl_region_type = 'TOOLS'
 	bl_category = '1D'
+
+	def draw_header(self, context):
+		layout = self.layout
+		layout.label(text='NA 1D Tools ' + '.'.join(str(_v) for _v in bl_info['version']))
 
 	def draw(self, context):
 		layout = self.layout
@@ -409,6 +418,19 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=box,
 					context=context
 				)
+			# Shape Loop
+			box = self.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='shape_loop',
+				label='Shape Loop',
+				align=False
+			)
+			if context.scene.na_1d_tools_ui.shape_loop:
+				ShapeLoop.ui(
+					layout=box,
+					context=context
+				)
 
 		# GPLAN TOOLS
 		gplan_tools_box = self.ui_section(
@@ -553,7 +575,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			layout=layout,
 			context=context,
 			prop='quad_bridge',
-			label='Quad Bridge 0.8.0'
+			label='Quad Bridge 0.8.2'
 		)
 		if context.scene.na_1d_tools_ui.quad_bridge:
 			quad_bridge_ui(

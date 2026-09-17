@@ -23,6 +23,7 @@ from .na_1d_tools_misc import na_1d_tools_misc
 from .obj_tools import obj_tools
 from .planar_edges import planar_edges
 from .retuber import retuber
+from .shape_loop import shape_loop
 from .slope_loop import slope_loop
 from .step_extrude import step_extrude
 from .stairs_sketcher import stairs_sketcher
@@ -41,7 +42,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 10, 0),
+    'version': (1, 11, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -70,6 +71,7 @@ def register():
     mesh_decompose.register(ui=False)
     obj_tools.register(ui=False)
     planar_edges.register(ui=False)
+    shape_loop.register(ui=False)
     slope_loop.register(ui=False)
     step_extrude.register(ui=False)
     stairs_sketcher.register(ui=False)
@@ -101,6 +103,7 @@ def unregister():
     stairs_sketcher.unregister(ui=False)
     step_extrude.unregister(ui=False)
     slope_loop.unregister(ui=False)
+    shape_loop.unregister(ui=False)
     planar_edges.unregister(ui=False)
     obj_tools.unregister(ui=False)
     mesh_decompose.unregister(ui=False)
