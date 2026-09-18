@@ -15,13 +15,16 @@ This toolset combines the following tools:
 - F2 Snake
 - Height Painter
 - Import LST
+- Knife Imprint
 - Material 1D Select
 - Mesh Decompose
+- Mesh Split
 - NA 1D Tools Misc
 - Obj Tools
 - Planar Edges
 - Quad Bridge
 - Retuber
+- Shape Loop
 - Slope Loop
 - Step Extrude
 - Stairs Sketcher
@@ -29,6 +32,8 @@ This toolset combines the following tools:
   - Rotten Rotation
   - Unnegative Scale
   - Filter Uniformly Scaled
+- UV Tools
+- UV Square
 - Vertical Vertices
 - Vertical UV
 - View Switch
@@ -50,6 +55,10 @@ Version History
 - "Deloop" updated
 - "Material Select" updated
 - "Shape Loop" added
+- "Mesh Split" added
+- "UV Tools" added
+- "UV Square" added
+- "Knife Imprint" added
 
 1.10.0
 - "View Switch" added

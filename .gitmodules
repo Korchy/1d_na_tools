@@ -88,3 +88,15 @@
 [submodule "shape_loop"]
 	path = shape_loop
 	url = git@github.com:Korchy/1d_shape_loop.git
+[submodule "mesh_split"]
+	path = mesh_split
+	url = git@github.com:Korchy/1d_mesh_split.git
+[submodule "uv_tools"]
+	path = uv_tools
+	url = git@github.com:Korchy/1d_uv_tools.git
+[submodule "uv_square"]
+	path = uv_square
+	url = git@github.com:Korchy/1d_uv_square.git
+[submodule "knife_imprint"]
+	path = knife_imprint
+	url = git@github.com:Korchy/1d_knife_imprint.git

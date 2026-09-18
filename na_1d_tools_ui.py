@@ -21,8 +21,10 @@ from .edges_length.edges_length import EdgesLength
 from .f2_snake.f2_snake import F2Snake
 from .height_painter.height_painter import HeightPainter
 from .import_lst.import_lst import ImportLST
+from .knife_imprint.knife_imprint import KnifeImprint
 from .material_select.material_1d_select import MaterialSelect
 from .mesh_decompose.mesh_decompose import MeshDecompose
+from .mesh_split.mesh_split import MeshSplit
 from .na_1d_tools_misc.na_1d_tools_misc import NA1DToolsMisc
 from .obj_tools.obj_tools import OBJTools
 from .planar_edges.planar_edges import Planar
@@ -36,6 +38,8 @@ from .subd_tool.subd_tool import SubdTool
 from .un_negative.filter_uniformly_scaled import FilterUniformlyScaled
 from .un_negative.rotten_rotation import RottenRotation
 from .un_negative.unnegative_scale import UnnegativeScale
+from .uv_square.uv_square import UVSquare
+from .uv_tools.uv_tools import UVTools
 from .vertical.vertical import Vertical
 from .vertical_vertices.vertical_vertices import VerticalVertices
 from .view_switch.view_switch import Viewswitch
@@ -56,6 +60,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	gplan_section = BoolProperty(
+		default=False
+	)
+	uv_tools_section = BoolProperty(
 		default=False
 	)
 
@@ -99,10 +106,16 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	import_lst = BoolProperty(
 		default=False
 	)
+	knife_imprint = BoolProperty(
+		default=False
+	)
 	material_select = BoolProperty(
 		default=False
 	)
 	mesh_decompose = BoolProperty(
+		default=False
+	)
+	mesh_split = BoolProperty(
 		default=False
 	)
 	na_1d_tools_misc = BoolProperty(
@@ -141,6 +154,12 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 	unnegative_scale = BoolProperty(
 		default=False
 	)
+	uv_square = BoolProperty(
+		default=False
+	)
+	uv_tools = BoolProperty(
+		default=False
+	)
 	vertical_vertices = BoolProperty(
 		default=False
 	)
@@ -172,7 +191,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 	def draw(self, context):
 		layout = self.layout
 		# CONVERT
-		convert_box = self.ui_section(
+		convert_box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='convert_section',
@@ -180,7 +199,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.convert_section:
 			# We Crease from Seam
-			self.ui_section(
+			PanelsUI.ui_section(
 				layout=convert_box,
 				context=context,
 				prop='we_crease_from_seam',
@@ -190,7 +209,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			if context.scene.na_1d_tools_ui.we_crease_from_seam:
 				WECFS.ui(layout=convert_box)
 			# Obj Tools
-			self.ui_section(
+			PanelsUI.ui_section(
 				layout=convert_box,
 				context=context,
 				prop='obj_tools',
@@ -204,7 +223,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 				)
 
 		# Material 1D Select
-		box = self.ui_section(
+		box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='material_select',
@@ -215,7 +234,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			MaterialSelect.ui(layout=box, context=context)
 
 		# 1D Subd Storage
-		box = self.ui_section(
+		box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='subd_tool',
@@ -225,7 +244,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			SubdTool.ui(layout=box)
 
 		# SKETCH TOOLS
-		sketch_tools_box = self.ui_section(
+		sketch_tools_box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='sketch_tools_section',
@@ -233,7 +252,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.sketch_tools_section:
 			# Step Extrude
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=sketch_tools_box,
 				context=context,
 				prop='step_extrude',
@@ -245,7 +264,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# 3 Points Arc (Arc_3)
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=sketch_tools_box,
 				context=context,
 				prop='arc_3',
@@ -257,7 +276,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# View Switch
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=sketch_tools_box,
 				context=context,
 				prop='view_switch',
@@ -270,7 +289,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 				)
 
 		# EDIT TOOLS
-		edit_tools_box = self.ui_section(
+		edit_tools_box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='edit_section',
@@ -278,7 +297,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.edit_section:
 			# Delaunay 1D Shot
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='delaunay_1d_shot',
@@ -290,7 +309,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Drawing Split
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='drawing_split',
@@ -299,7 +318,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			if context.scene.na_1d_tools_ui.drawing_split:
 				DrawingSplit.ui(layout=box)
 			# Retuber
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='retuber',
@@ -308,7 +327,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			if context.scene.na_1d_tools_ui.retuber:
 				Retuber.ui(layout=box)
 			# Vitragen
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='vitragen',
@@ -320,7 +339,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Vertical
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='vertical_uv',
@@ -332,7 +351,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# F2 Snake
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='f2_snake',
@@ -344,7 +363,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Rotten Rotation
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='rotten_rotation',
@@ -356,7 +375,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Unnegative Scale
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='unnegative_scale',
@@ -368,7 +387,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Filter Uniformly Scaled
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='filter_uniformly_scaled',
@@ -380,7 +399,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# NA 1D Tools Misc
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='na_1d_tools_misc',
@@ -393,7 +412,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Mesh Decompose
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='mesh_decompose',
@@ -406,7 +425,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Corner Fill
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='corner_fill',
@@ -419,7 +438,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Shape Loop
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=edit_tools_box,
 				context=context,
 				prop='shape_loop',
@@ -431,9 +450,22 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=box,
 					context=context
 				)
+			# Mesh Split
+			box = PanelsUI.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='mesh_split',
+				label='Mesh Split',
+				align=False
+			)
+			if context.scene.na_1d_tools_ui.mesh_split:
+				MeshSplit.ui(
+					layout=box,
+					context=context
+				)
 
 		# GPLAN TOOLS
-		gplan_tools_box = self.ui_section(
+		gplan_tools_box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='gplan_section',
@@ -441,7 +473,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 		)
 		if context.scene.na_1d_tools_ui.gplan_section:
 			# Edges Length
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='edges_length',
@@ -453,7 +485,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Height Painter
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='height_painter',
@@ -465,7 +497,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Stairs Sketcher
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='stairs_sketcher',
@@ -474,7 +506,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			if context.scene.na_1d_tools_ui.stairs_sketcher:
 				StairsSketcher.ui(layout=box)
 			# Vertical Vertices
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='vertical_vertices',
@@ -486,7 +518,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Deloop
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='deloop',
@@ -498,7 +530,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Slope Loop
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='slope_loop',
@@ -510,7 +542,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Contour Sew
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='contour_sew',
@@ -522,7 +554,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Planar Edges
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='planar_edges',
@@ -534,7 +566,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Connect Loop
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='connect_loop',
@@ -546,7 +578,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# Import LST
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='import_lst',
@@ -558,7 +590,7 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context
 				)
 			# DLevel
-			box = self.ui_section(
+			box = PanelsUI.ui_section(
 				layout=gplan_tools_box,
 				context=context,
 				prop='dlevel',
@@ -569,9 +601,21 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					layout=box,
 					context=context
 				)
+			# Knife Imprint
+			box = PanelsUI.ui_section(
+				layout=gplan_tools_box,
+				context=context,
+				prop='knife_imprint',
+				label='Knife Imprint'
+			)
+			if context.scene.na_1d_tools_ui.knife_imprint:
+				KnifeImprint.ui(
+					layout=box,
+					context=context
+				)
 
 		# Quad Bridge
-		box = self.ui_section(
+		box = PanelsUI.ui_section(
 			layout=layout,
 			context=context,
 			prop='quad_bridge',
@@ -582,6 +626,81 @@ class NA_1D_TOOLS_PT_panel(Panel):
 				layout=box,
 				context=context
 			)
+
+		# UV TOOLS
+		uv_tools_section_box = PanelsUI.ui_section(
+			layout=layout,
+			context=context,
+			prop='uv_tools_section',
+			label='UV TOOLS'
+		)
+		if context.scene.na_1d_tools_ui.uv_tools_section:
+			# UV Tools
+			box = PanelsUI.ui_section(
+				layout=uv_tools_section_box,
+				context=context,
+				prop='uv_tools',
+				label='UV Tools'
+			)
+			if context.scene.na_1d_tools_ui.uv_tools:
+				UVTools.ui(
+					layout=box,
+					context=context,
+					area='VIEWPORT'
+				)
+			# UV Square
+			box = PanelsUI.ui_section(
+				layout=uv_tools_section_box,
+				context=context,
+				prop='uv_square',
+				label='UV Square'
+			)
+			if context.scene.na_1d_tools_ui.uv_square:
+				UVSquare.ui(
+					layout=box,
+					context=context,
+					area='VIEWPORT'
+				)
+
+
+class NA_1D_TOOLS_PT_panel_uv(Panel):
+	bl_idname = 'NA_1D_TOOLS_PT_panel_uv'
+	bl_label = ' '	# will be overridden in draw_header()
+	bl_space_type = 'IMAGE_EDITOR'
+	bl_region_type = 'TOOLS'
+	bl_category = '1D'
+
+	def draw_header(self, context):
+		layout = self.layout
+		layout.label(text='NA 1D Tools ' + '.'.join(str(_v) for _v in bl_info['version']))
+
+	def draw(self, context):
+		layout = self.layout
+
+		# UV TOOLS
+		uv_tools_section_box = PanelsUI.ui_section(
+			layout=layout,
+			context=context,
+			prop='uv_tools_section',
+			label='UV TOOLS'
+		)
+		if context.scene.na_1d_tools_ui.uv_tools_section:
+			# UV Tools
+			box = PanelsUI.ui_section(
+				layout=uv_tools_section_box,
+				context=context,
+				prop='uv_tools',
+				label='UV Tools'
+			)
+			if context.scene.na_1d_tools_ui.uv_tools:
+				UVTools.ui(
+					layout=box,
+					context=context,
+					area='UV'
+				)
+
+
+class PanelsUI:
 
 	@staticmethod
 	def ui_section(layout, context, prop, label, content_box=True, align=True):
@@ -604,9 +723,11 @@ def register():
 	register_class(NA_1D_TOOLS_UI)
 	Scene.na_1d_tools_ui = PointerProperty(type=NA_1D_TOOLS_UI)
 	register_class(NA_1D_TOOLS_PT_panel)
+	register_class(NA_1D_TOOLS_PT_panel_uv)
 
 
 def unregister():
+	unregister_class(NA_1D_TOOLS_PT_panel_uv)
 	unregister_class(NA_1D_TOOLS_PT_panel)
 	del Scene.na_1d_tools_ui
 	unregister_class(NA_1D_TOOLS_UI)

@@ -17,8 +17,10 @@ from .edges_length import edges_length
 from .f2_snake import f2_snake
 from .height_painter import height_painter
 from .import_lst import import_lst
+from .knife_imprint import knife_imprint
 from .material_select import material_1d_select
 from .mesh_decompose import mesh_decompose
+from .mesh_split import mesh_split
 from .na_1d_tools_misc import na_1d_tools_misc
 from .obj_tools import obj_tools
 from .planar_edges import planar_edges
@@ -31,6 +33,8 @@ from .subd_tool import subd_tool
 from .un_negative import filter_uniformly_scaled
 from .un_negative import rotten_rotation
 from .un_negative import unnegative_scale
+from .uv_square import uv_square
+from .uv_tools import uv_tools
 from .vertical import vertical
 from .vertical_vertices import vertical_vertices
 from .view_switch import view_switch
@@ -68,7 +72,9 @@ def register():
     filter_uniformly_scaled.register(ui=False)
     height_painter.register(ui=False)
     import_lst.register(ui=False)
+    knife_imprint.register(ui=False)
     mesh_decompose.register(ui=False)
+    mesh_split.register(ui=False)
     obj_tools.register(ui=False)
     planar_edges.register(ui=False)
     shape_loop.register(ui=False)
@@ -78,6 +84,8 @@ def register():
     retuber.register(ui=False)
     rotten_rotation.register(ui=False)
     unnegative_scale.register(ui=False)
+    uv_square.register(ui=False)
+    uv_tools.register(ui=False)
     vertical_vertices.register(ui=False)
     vertical.register(ui=False)
     view_switch.register(ui=False)
@@ -97,6 +105,8 @@ def unregister():
     view_switch.unregister(ui=False)
     vertical.unregister(ui=False)
     vertical_vertices.unregister(ui=False)
+    uv_tools.unregister(ui=False)
+    uv_square.unregister(ui=False)
     unnegative_scale.unregister(ui=False)
     rotten_rotation.unregister(ui=False)
     retuber.unregister(ui=False)
@@ -106,7 +116,9 @@ def unregister():
     shape_loop.unregister(ui=False)
     planar_edges.unregister(ui=False)
     obj_tools.unregister(ui=False)
+    mesh_split.unregister(ui=False)
     mesh_decompose.unregister(ui=False)
+    knife_imprint.unregister(ui=False)
     import_lst.unregister(ui=False)
     height_painter.unregister(ui=False)
     filter_uniformly_scaled.unregister(ui=False)
