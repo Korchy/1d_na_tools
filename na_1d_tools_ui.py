@@ -35,6 +35,7 @@ from .slope_loop.slope_loop import SlopeLoop
 from .stairs_sketcher.stairs_sketcher import StairsSketcher
 from .step_extrude.step_extrude import StepExtrude
 from .subd_tool.subd_tool import SubdTool
+from .tubesolver.tubesolver import Tubesolver
 from .un_negative.filter_uniformly_scaled import FilterUniformlyScaled
 from .un_negative.rotten_rotation import RottenRotation
 from .un_negative.unnegative_scale import UnnegativeScale
@@ -149,6 +150,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	subd_tool = BoolProperty(
+		default=False
+	)
+	tubesolver = BoolProperty(
 		default=False
 	)
 	unnegative_scale = BoolProperty(
@@ -317,6 +321,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 			)
 			if context.scene.na_1d_tools_ui.drawing_split:
 				DrawingSplit.ui(layout=box)
+			# Tubesolver
+			box = PanelsUI.ui_section(
+				layout=edit_tools_box,
+				context=context,
+				prop='tubesolver',
+				label='Tubesolver'
+			)
+			if context.scene.na_1d_tools_ui.tubesolver:
+				Tubesolver.ui(
+					layout=box,
+					context=context
+				)
 			# Retuber
 			box = PanelsUI.ui_section(
 				layout=edit_tools_box,

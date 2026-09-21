@@ -30,6 +30,7 @@ from .slope_loop import slope_loop
 from .step_extrude import step_extrude
 from .stairs_sketcher import stairs_sketcher
 from .subd_tool import subd_tool
+from .tubesolver import tubesolver
 from .un_negative import filter_uniformly_scaled
 from .un_negative import rotten_rotation
 from .un_negative import unnegative_scale
@@ -46,7 +47,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 11, 0),
+    'version': (1, 12, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -59,7 +60,6 @@ def register():
     arc_3.register(ui=False)
     material_1d_select.register(ui=False)
     na_1d_tools_misc.register(ui=False)
-    subd_tool.register(ui=False)
     connect_loop.register(ui=False)
     contour_sew.register(ui=False)
     corner_fill.register(ui=False)
@@ -81,6 +81,8 @@ def register():
     slope_loop.register(ui=False)
     step_extrude.register(ui=False)
     stairs_sketcher.register(ui=False)
+    subd_tool.register(ui=False)
+    tubesolver.register(ui=False)
     retuber.register(ui=False)
     rotten_rotation.register(ui=False)
     unnegative_scale.register(ui=False)
@@ -110,6 +112,8 @@ def unregister():
     unnegative_scale.unregister(ui=False)
     rotten_rotation.unregister(ui=False)
     retuber.unregister(ui=False)
+    tubesolver.unregister(ui=False)
+    subd_tool.unregister(ui=False)
     stairs_sketcher.unregister(ui=False)
     step_extrude.unregister(ui=False)
     slope_loop.unregister(ui=False)
@@ -131,7 +135,6 @@ def unregister():
     corner_fill.unregister(ui=False)
     contour_sew.unregister(ui=False)
     connect_loop.unregister(ui=False)
-    subd_tool.unregister(ui=False)
     na_1d_tools_misc.unregister(ui=False)
     material_1d_select.unregister(ui=False)
     arc_3.unregister(ui=False)

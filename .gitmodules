@@ -100,3 +100,6 @@
 [submodule "knife_imprint"]
 	path = knife_imprint
 	url = git@github.com:Korchy/1d_knife_imprint.git
+[submodule "tubesolver"]
+	path = tubesolver
+	url = git@github.com:Korchy/1d_tubesolver.git

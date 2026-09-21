@@ -46,10 +46,13 @@ For Blender:
 
 Current Version
 -
-1.11.0
+1.12.0
 
 Version History
 -
+1.12.0
+- "Tubesolver" added
+
 1.11.0
 - Added version number to the add-on title
 - "Deloop" updated
