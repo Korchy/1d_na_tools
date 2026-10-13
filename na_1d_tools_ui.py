@@ -21,6 +21,7 @@ from .edges_length.edges_length import EdgesLength
 from .f2_snake.f2_snake import F2Snake
 from .height_painter.height_painter import HeightPainter
 from .import_lst.import_lst import ImportLST
+from .island_tools.island_tools import IslandTools
 from .knife_imprint.knife_imprint import KnifeImprint
 from .material_select.material_1d_select import MaterialSelect
 from .mesh_decompose.mesh_decompose import MeshDecompose
@@ -105,6 +106,9 @@ class NA_1D_TOOLS_UI(PropertyGroup):
 		default=False
 	)
 	import_lst = BoolProperty(
+		default=False
+	)
+	island_tools = BoolProperty(
 		default=False
 	)
 	knife_imprint = BoolProperty(
@@ -677,6 +681,18 @@ class NA_1D_TOOLS_PT_panel(Panel):
 					context=context,
 					area='VIEWPORT'
 				)
+		# ISLAND TOOLS
+		box = PanelsUI.ui_section(
+			layout=layout,
+			context=context,
+			prop='island_tools',
+			label='ISLAND TOOLS'
+		)
+		if context.scene.na_1d_tools_ui.island_tools:
+			IslandTools.ui(
+				layout=box,
+				context=context,
+			)
 
 
 class NA_1D_TOOLS_PT_panel_uv(Panel):

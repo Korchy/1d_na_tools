@@ -15,6 +15,7 @@ This toolset combines the following tools:
 - F2 Snake
 - Height Painter
 - Import LST
+- Island Tools
 - Knife Imprint
 - Material 1D Select
 - Mesh Decompose
@@ -28,6 +29,7 @@ This toolset combines the following tools:
 - Slope Loop
 - Step Extrude
 - Stairs Sketcher
+- Tubesolver
 - Un Negative
   - Rotten Rotation
   - Unnegative Scale
@@ -46,10 +48,13 @@ For Blender:
 
 Current Version
 -
-1.12.0
+1.13.0
 
 Version History
 -
+1.12.0
+- "Island Tools" added
+
 1.12.0
 - "Tubesolver" added
 

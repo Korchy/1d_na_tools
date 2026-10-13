@@ -103,3 +103,6 @@
 [submodule "tubesolver"]
 	path = tubesolver
 	url = git@github.com:Korchy/1d_tubesolver.git
+[submodule "island_tools"]
+	path = island_tools
+	url = git@github.com:Korchy/1d_island_tools.git

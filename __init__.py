@@ -17,6 +17,7 @@ from .edges_length import edges_length
 from .f2_snake import f2_snake
 from .height_painter import height_painter
 from .import_lst import import_lst
+from .island_tools import island_tools
 from .knife_imprint import knife_imprint
 from .material_select import material_1d_select
 from .mesh_decompose import mesh_decompose
@@ -47,7 +48,7 @@ bl_info = {
     'name': 'NA 1D Tools',
     'category': 'All',
     'author': 'Nikita Akimov, Paul Kotelevets',
-    'version': (1, 12, 0),
+    'version': (1, 13, 0),
     'blender': (2, 79, 0),
     'location': 'The 3D_View window - T-panel - NA 1D Tools',
     'wiki_url': 'https://github.com/Korchy/1d_na_tools',
@@ -72,6 +73,7 @@ def register():
     filter_uniformly_scaled.register(ui=False)
     height_painter.register(ui=False)
     import_lst.register(ui=False)
+    island_tools.register(ui=False)
     knife_imprint.register(ui=False)
     mesh_decompose.register(ui=False)
     mesh_split.register(ui=False)
@@ -123,6 +125,7 @@ def unregister():
     mesh_split.unregister(ui=False)
     mesh_decompose.unregister(ui=False)
     knife_imprint.unregister(ui=False)
+    island_tools.unregister(ui=False)
     import_lst.unregister(ui=False)
     height_painter.unregister(ui=False)
     filter_uniformly_scaled.unregister(ui=False)
