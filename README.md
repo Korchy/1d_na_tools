@@ -48,11 +48,14 @@ For Blender:
 
 Current Version
 -
-1.13.0
+1.14.0
 
 Version History
 -
-1.12.0
+1.14.0
+- "NA 1D Misc" updated
+
+1.13.0
 - "Island Tools" added
 
 1.12.0
