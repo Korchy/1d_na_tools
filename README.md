@@ -48,10 +48,13 @@ For Blender:
 
 Current Version
 -
-1.14.0
+1.15.0
 
 Version History
 -
+1.15.0
+- "UV Tools" updated
+
 1.14.0
 - "NA 1D Misc" updated
 
