@@ -48,10 +48,13 @@ For Blender:
 
 Current Version
 -
-1.15.0
+1.16.0
 
 Version History
 -
+1.16.0
+- "UV Tools" updated
+
 1.15.0
 - "UV Tools" updated
 
